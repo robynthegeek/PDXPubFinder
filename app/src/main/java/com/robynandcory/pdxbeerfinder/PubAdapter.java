@@ -1,7 +1,6 @@
 package com.robynandcory.pdxbeerfinder;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,9 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import java.util.ArrayList;
 
-public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubHolder> {
+public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubHolder>{
     private LayoutInflater layoutInflater;
     private ArrayList<Pub> PubsDatabase;
 
@@ -48,7 +48,7 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubHolder> {
         //assign the pub in the arraylist to the holder views
         holder.pubName.setText(currentPub.getPubName());
         //TODO add pub type: holder.pubType.setText(currentPub.getPubType());
-        holder.pubImageID.setImageResource(currentPub.getImageResource());
+        holder.pubImageView.setImageResource(currentPub.getImageResource());
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -58,20 +58,39 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubHolder> {
 //        });
     }
 
-    class PubHolder extends RecyclerView.ViewHolder {
+    class PubHolder extends RecyclerView.ViewHolder  implements View.OnClickListener{
         private TextView pubName;
-        //TODO add star: private ImageView pubIsStarred;
+        private ImageView pubIsStarred;
         //TODO add pub type: private TextView pubType;
-        private ImageView pubImageID;
+        private ImageView pubImageView;
 
         private PubHolder (View pubCardView){
             super (pubCardView);
             pubName = pubCardView.findViewById(R.id.cardTextView);
-            pubImageID = pubCardView.findViewById(R.id.cardImageView);
+            pubImageView = pubCardView.findViewById(R.id.cardImageView);
             //TODO add pub type: pubType = pubCardView.findViewById(R.id.);
-            //TODO add star: pubIsStarred = pubCardView.findViewById(R.id.star);
+            pubIsStarred = pubCardView.findViewById(R.id.cardLayoutFavorite);
+            pubName.setOnClickListener(this);
+            pubImageView.setOnClickListener(this);
+            pubIsStarred.setOnClickListener(this);
+
         }
 
+        @Override
+        public void onClick(View clickableViews) {
+            if(clickableViews == pubName) {
+                Toast.makeText(pubName.getContext(), "You clicked name", Toast.LENGTH_LONG).show();
+            }
+            if(clickableViews == pubImageView) {
+                Toast.makeText(pubName.getContext(), "You clicked Image", Toast.LENGTH_LONG).show();
+            }
+            if(clickableViews == pubIsStarred) {
+                Toast.makeText(pubName.getContext(), "favorite", Toast.LENGTH_LONG).show();
+            }
+        }
     }
+
+
+
 
 }

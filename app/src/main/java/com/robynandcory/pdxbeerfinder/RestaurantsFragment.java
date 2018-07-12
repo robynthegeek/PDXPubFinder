@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +27,7 @@ public class RestaurantsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_restaurants, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_pubs, container, false);
         RecyclerView sortedRecycler = rootView.findViewById(R.id.recycler);
 //        View cardview = rootView.findViewById(R.id.cardview);
 //        cardview.setOnClickListener(new View.OnClickListener() {
