@@ -3,27 +3,53 @@ package com.robynandcory.pdxbeerfinder;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class RestaurantsFragment extends Fragment {
+    PubsDatabase arrayOfRestaurants = new PubsDatabase();
+    ArrayList<Pub> PubsDatabase = new ArrayList<>();
+    PubAdapter sortedAdapter;
 
-
-    public RestaurantsFragment() {
-        // Required empty public constructor
+    public static RestaurantsFragment newInstance() {
+        RestaurantsFragment fragment = new RestaurantsFragment();
+        return fragment;
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_restaurants, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_restaurants, container, false);
+        RecyclerView sortedRecycler = rootView.findViewById(R.id.recycler);
+        View cardview = rootView.findViewById(R.id.cardview);
+        cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "YAY", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        //Clear the arraylist and get the data from the PubsDatabase
+        PubsDatabase.clear();
+        PubsDatabase = arrayOfRestaurants.getPubsDatabase();
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(rootView.getContext());
+        sortedAdapter = new PubAdapter(rootView.getContext(), PubsDatabase);
+        sortedRecycler.setLayoutManager(linearLayoutManager);
+        sortedRecycler.setAdapter(sortedAdapter);
+        sortedAdapter.notifyDataSetChanged();
+
+        return rootView;
     }
 
 }

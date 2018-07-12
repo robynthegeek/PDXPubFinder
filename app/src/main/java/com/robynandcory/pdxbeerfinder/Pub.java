@@ -1,5 +1,9 @@
 package com.robynandcory.pdxbeerfinder;
 
+/**
+ * Creates a new class called Pub, which holds information about Portland establishments
+ * that serve Beer.
+ */
 public class Pub {
     private String mPubName;
     private String mPubType;
@@ -20,7 +24,7 @@ public class Pub {
         return mPubName;
     }
     // returns the assigned pub type
-    public String getmPubType() {
+    public String getPubType() {
         return mPubType;
     }
     // returns the Boolean true or false for whether the pub is starred (favorite)
