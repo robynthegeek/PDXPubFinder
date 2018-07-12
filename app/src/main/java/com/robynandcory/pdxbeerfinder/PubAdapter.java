@@ -3,6 +3,7 @@ package com.robynandcory.pdxbeerfinder;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,14 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubHolder> {
         this.PubsDatabase = PubsDatabase;
     }
 
+    //gets the size of the current array
+    @Override
+    public int getItemCount() {
+
+        Log.e("PubAdapter", "Size =" + PubsDatabase.size());
+        return PubsDatabase.size();
+    }
+
     //create a view and inflate it with the recycler
     @Override
     public PubHolder  onCreateViewHolder (ViewGroup parent, int viewType){
@@ -34,17 +43,19 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubHolder> {
     public void onBindViewHolder(PubHolder holder, int position){
         final Pub currentPub = PubsDatabase.get(position);
 
+        Log.e("PubAdapter","Arguments =" + holder + position);
+
         //assign the pub in the arraylist to the holder views
         holder.pubName.setText(currentPub.getPubName());
         //TODO add pub type: holder.pubType.setText(currentPub.getPubType());
         holder.pubImageID.setImageResource(currentPub.getImageResource());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(),"HELP", Toast.LENGTH_LONG).show();
-                //Intent viewRestaurant = new Intent(this)
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(view.getContext(),"HELP", Toast.LENGTH_LONG).show();
+//                //Intent viewRestaurant = new Intent(this)
+//            }
+//        });
     }
 
     class PubHolder extends RecyclerView.ViewHolder {
@@ -63,9 +74,4 @@ public class PubAdapter extends RecyclerView.Adapter<PubAdapter.PubHolder> {
 
     }
 
-    //gets the size of the current array
-    @Override
-    public int getItemCount() {
-        return PubsDatabase.size();
-    }
 }

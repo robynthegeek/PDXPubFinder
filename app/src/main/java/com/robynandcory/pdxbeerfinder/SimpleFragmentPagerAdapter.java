@@ -21,7 +21,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new BarsFragment();
+            return new RestaurantsFragment();
         } else if (position == 1) {
             return new BreweriesFragment();
         } else if (position == 2) {
