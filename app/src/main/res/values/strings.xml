@@ -1,6 +1,29 @@
 <resources>
-    <string name="app_name">PDXBeerFinder</string>
+    <string name="app_name">PDX Beer Finder</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="smokehouse">Smokehouse Tavern</string>
+    <string name="toffee">Toffee Club</string>
+    <string name="lardo">Lardo</string>
+    <string name="pinest">Pine St. Market</string>
+    <string name="bar">Bar</string>
+    <string name="brewery">Brewery</string>
+    <string name="store">Store</string>
+    <string name="loyal">Loyal Legion</string>
+    <string name="craftpourhouse">Craft Pour House</string>
+    <string name="HOME">HOME Bar</string>
+    <string name="toffeeclub">Toffee Club</string>
+    <string name="spaceroom">SpaceRoom</string>
+    <string name="wayfinder">Wayfinder</string>
+    <string name="culmination">Culmination</string>
+    <string name="pfriem">Pfriem</string>
+    <string name="johns">John\'s Marketplace</string>
+    <string name="belmont">Belmont Station</string>
+    <string name="imperial">Imperial Bottle Shop</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="breweries">Breweries</string>
+    <string name="bars">Bars</string>
+    <string name="stores">Stores</string>
 </resources>

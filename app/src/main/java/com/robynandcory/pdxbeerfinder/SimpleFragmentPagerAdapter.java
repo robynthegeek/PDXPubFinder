@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
-    private static int ITEM_COUNT = 4;
-    private String tabTitles[] = new String[] { "Restaurants", "Breweries", "Bars", "Stores" };
+
+    private String tabTitles[] = new String[]{AppContext.getContext().getString(R.string.restaurants), AppContext.getContext().getString(R.string.breweries), AppContext.getContext().getString(R.string.bars), AppContext.getContext().getString(R.string.stores)};
 
     public SimpleFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -15,7 +15,8 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     //returns the number of fragment pages
     @Override
     public int getCount() {
-        return ITEM_COUNT;
+        //update with the number of fragment pages
+        return 4;
     }
 
     @Override
@@ -30,6 +31,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
             return new StoresFragment();
         }
     }
+
     @Override
     public CharSequence getPageTitle(int position) {
         // Generate title based on item position

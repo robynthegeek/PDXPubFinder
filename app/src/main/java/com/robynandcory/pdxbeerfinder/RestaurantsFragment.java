@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,6 @@ public class RestaurantsFragment extends Fragment {
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(rootView.getContext());
         PubAdapter pubAdapter = new PubAdapter(rootView.getContext(), pubsDatabase.getRestaurantsDatabase());
-        Log.e("RestaurantsFragment", "Contents=" + pubsDatabase.getRestaurantsDatabase());
         pubRecycler.setLayoutManager(linearLayoutManager);
         pubRecycler.setAdapter(pubAdapter);
         pubAdapter.notifyDataSetChanged();
