@@ -12,7 +12,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
-    //returns number of pages
+    //returns the number of fragment pages
     @Override
     public int getCount() {
         return ITEM_COUNT;

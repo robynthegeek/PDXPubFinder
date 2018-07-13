@@ -9,42 +9,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class RestaurantsFragment extends Fragment {
-    final PubsDatabase arrayOfRestaurants = new PubsDatabase();
-    PubAdapter sortedAdapter;
-
-    public static RestaurantsFragment newInstance() {
-        RestaurantsFragment fragment = new RestaurantsFragment();
-        return fragment;
-    }
-
+    final PubsDatabase pubsDatabase = new PubsDatabase();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        //When fragment is created run the inflater and RecyclerView
         View rootView = inflater.inflate(R.layout.fragment_pubs, container, false);
-        RecyclerView sortedRecycler = rootView.findViewById(R.id.recycler);
-//        View cardview = rootView.findViewById(R.id.cardview);
-//        cardview.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getContext(), "YAY", Toast.LENGTH_LONG).show();
-//            }
-//        });
-
-
+        RecyclerView pubRecycler = rootView.findViewById(R.id.recycler);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(rootView.getContext());
-        sortedAdapter = new PubAdapter(rootView.getContext(), arrayOfRestaurants.getPubsDatabase());
-        Log.e("RestaurantsFragment", "Contents="+ arrayOfRestaurants.getPubsDatabase());
-        sortedRecycler.setLayoutManager(linearLayoutManager);
-        sortedRecycler.setAdapter(sortedAdapter);
-        sortedAdapter.notifyDataSetChanged();
+        PubAdapter pubAdapter = new PubAdapter(rootView.getContext(), pubsDatabase.getRestaurantsDatabase());
+        Log.e("RestaurantsFragment", "Contents=" + pubsDatabase.getRestaurantsDatabase());
+        pubRecycler.setLayoutManager(linearLayoutManager);
+        pubRecycler.setAdapter(pubAdapter);
+        pubAdapter.notifyDataSetChanged();
 
         return rootView;
     }

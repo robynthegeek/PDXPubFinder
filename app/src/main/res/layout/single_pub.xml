@@ -11,8 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/design_default_color_primary_dark"
+        android:background="@color/colorPrimaryDark"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="32sp"
@@ -30,7 +29,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/singlePubTextView"
-        app:layout_constraintBottom_toTopOf="@id/singlePubInfoText"
         tools:src="@drawable/backgroundpdx" />
 
 
@@ -44,6 +42,7 @@
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/singlePubImageView"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp"
         tools:text="BEER HERE  asdfkjhasdfkjashdfkjashdfksjahdfskjdfhskadjfhskdjfhaskdjfhdskfjh" />
